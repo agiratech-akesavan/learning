@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        .background {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.247);
+            height: 100%;
+        }
+
+        .row {
+            height: 100%;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+        }
+
+        fieldset {
+            border: 2px solid white;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            width:100%;
+        }
+        legend{
+            background-color: black;
+            padding:10px;
+            text-align:center;
+            color:white;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2rem;
+            color:black;
+        }
+        input{
+            width:100%;
+            /* margin:0px 20px; */
+        }
+        input[type='submit']{
+            font-size:1.1rem;
+            font-weight:600;
+        }
+        a{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="background" style="background-image:url('deepak-p-ynhPIGgGa2g-unsplash.jpg')">
+            <div class="overlay">
+                <div class="row">
+                    <div class="col-lg-6 content">
+                        <div class="contentheading">
+                            <h1 class="">Registeration Page</h1>
+                            <p class="ms-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem repellendus magni
+                                recusandae rerum ducimus quam dolor, voluptatibus minus ratione dolorem?</p>
+                                <a href="basictag.html" class="btn btn-primary ms-5">Go back</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 content">
+                        <div class="registerationform ">
+                            <fieldset>
+                                <div>
+                                <legend>Registeration</legend>
+                                    <form action="basictag.html">
+                                        <div class="form-contro">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="form-contro">
+                                            <label for="contact">Contact</label>
+                                            <input type="text" class="form-control" id="contact" required>
+                                        </div>
+                                        <div class="form-contro">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control"  id="email" required>
+                                        </div>
+                                        <div class="form-contro">
+                                            <label for="comment">comment</label>
+                                            <textarea name="text" id="comment" cols="30" rows="5"></textarea>
+                                        </div>
+                                        <input type="submit" class="btn btn-success">
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap javascript cdn link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

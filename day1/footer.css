@@ -1,0 +1,16 @@
+.footer{
+    background-color: rgba(20, 20, 20, 0.945);
+}
+h4{
+    color:white;
+}
+.footerheading{
+    border-bottom: 2px solid white;
+}
+.para{
+    text-align: center;
+    color:white;
+}
+.paracontent{
+    text-align:justify;
+}
