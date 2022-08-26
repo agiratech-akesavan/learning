@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Vehicle{
+            constructor(brand){
+                this.bikecompany=brand;
+            }
+            stored(){
+                return bikecompany;
+            }
+        }
+        class Bike extends Vehicle{
+            constructor(brand,mod){
+                super(brand);
+                this.bikemodel=mod;
+            }
+            show(){
+                return this.bikecompany+" "+this.bikemodel;
+            }
+        }
+
+        class car{
+            constructor(brand){
+                this.carcompany=brand;
+            }
+            stored(){
+                return this.carcompany;
+            }
+        }
+
+        class Car extends car{
+            constructor(brand,mod){
+                super(brand);
+                this.carmodel=mod;
+            }
+            show(){
+                return this.stored()+" "+this.carmodel;
+            }
+        }
+
+
+
+
+
+
+        mybike=new Bike("Royal Enfield","Classic 350cc");
+        mycar=new Car("Toyato","Crysta");
+
+        document.write(mybike.show()+"<br>");
+        document.write(mycar.show());
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        
+        class Car{
+            constructor(brand){
+                this.carname=brand;
+            }
+            get carname(){
+                return this._carname;
+            }
+            set carname(x){
+                this._carname=x;
+            }
+
+            // show(){
+            //     return this.carname;
+            // }
+        }
+
+        // class Car extends Bike{
+        //     constructor(brand,twowheeler){
+        //         super(brand);
+        //         this.twowheel=twowheeler;
+        //     }
+        //     // get twowheeler(){
+        //     //     return this._twowheeler ;
+        //     // }
+        //     // set twowheeler(y){
+        //     //     this._twowheeler=y;
+        //     // }
+
+        //     // output(){
+        //     //     return this.show()+ this.twowheel;
+        //     // }
+
+        // }
+
+
+        let mycar=new Car("Honda","toyoto");
+
+        document.write(mycar.carname);
+
+    </script>
+</body>
+</html>

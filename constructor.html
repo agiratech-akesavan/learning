@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car{
+            constructor(brand){
+                this.carcompany=brand;
+            }
+            pre(){
+                return "My car company name " + this.carcompany;
+            }
+        }
+
+        class Model extends Car{
+            constructor(brand,mod){
+                super(brand);
+                this.carname=mod;
+            }
+            show(){
+                return this.carcompany +" " +this.carname;
+            }
+        }
+        mycar=new Model("ford","classic");
+        document.write(mycar.show());
+    </script>
+</body>
+</html>
