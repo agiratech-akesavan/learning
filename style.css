@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container{
+    margin:0rem 8rem 5rem 8rem;
+    /* height:100vh; */
+    /* border:2px solid white; */
+}
+.background{
+    top:-.75rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.overlayer{
+    background-color: rgba(0, 0, 0, 0.589);
+}
+.center-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.heading > h1{
+    display: flex;
+    justify-content: center;
+    font-size:3rem;
+    text-align: center;
+    -webkit-text-stroke:2px black;
+    color:white;
+}
+
+
+/* service page style */
+
+
+.service .service-heading{
+    border:2px solid black;
+    margin-bottom: 5rem;
+    border-radius: 20px;
+}
+.service .service-heading h3{
+    font-size: 2.5rem;
+    text-align: center;
+    padding:1rem;
+}

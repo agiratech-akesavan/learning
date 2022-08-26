@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- font Awasome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- body content css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- navbar style css -->
+    <link rel="stylesheet" href="navbar.css">
+    <!-- card style -->
+    <!-- <link rel="stylesheet" href="card.css"> -->
+    <!-- card flex property -->
+    <link rel="stylesheet" href="cardflex.css">
+    <!-- footer style -->
+    <link rel="stylesheet" href="footer.css">
+</head>
+
+<body>
+    <div class="background" style="background-image:url('background.jpg')" id="home">
+        <div class="overlayer">
+            <div class="nav">
+                <!-- navbar code -->
+                <nav class="navbar">
+                    <div class="nav-container">
+                        <div class="logo">
+                            <h1>logo</h1>
+                        </div>
+                        <div>
+                            <a href="#" class="toggle-buttom" onclick="myFunction()">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </a>
+                        </div>
+                        <div class="navbarlink" id="scriptnav">
+                            <ul class="parent">
+                                <li class="parent1child"><a class="parentA1child" href="#home">Home</a></li>
+                                <li class="parent1child" id="parent1about"><a class="parentA1child" href="#">About
+                                        As</a>
+                                    <ul class="about">
+                                        <li class="parent2child" id="parent2about"><a class="parentA2child"
+                                                href="#">About
+                                                Company<i class="fa-solid fa-angle-right" style="margin-left:3px"
+                                                    id="icon"></i></a>
+                                            <ul class="company">
+                                                <li class="parent21child" id="parent21child"><a href="#"
+                                                        class="parentA21child">Address</a></li>
+                                                <li class="parent21child"><a href="#"
+                                                        class="parentA21child">Projects</a>
+                                                </li>
+                                                <li class="parent21child"><a href="#" class="parentA21child">Information
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="parent2child"><a class="parentA2child" href="#">Success Stories</a>
+                                        </li>
+                                        <li class="parent2child"><a class="parentA2child" href="#">Careers</a></li>
+                                    </ul>
+                                </li>
+                                <li class="parent1child" id="parent1work"><a class="parentA1child" href="#"> Works</a>
+                                    <ul class="work">
+                                        <li class="parent3work"><a href="#" class="parentA2child">UI and UX design</a>
+                                        </li>
+                                        <li class="parent3work"><a href="#" class="parentA2child">Web site
+                                                development</a>
+                                        </li>
+                                        <li class="parent3work"><a href="#" class="parentA2child">Web site service</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="parent1child"><a class="parentA1child" href="#service">Service</a></li>
+                                <li class="parent1child"><a class="parentA1child" href="#">Blog</a></li>
+                                <li class="parent1child"><a class="parentA1child" href="#footer">
+                                        ContactUs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="container">
+                <div class="center-heading">
+                    <div class="heading">
+                        <h1>Best Family House</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- service section -->
+    <div class="container service" id="service">
+        <div class="service-heading">
+            <h3>Service Page</h3>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-width">
+                    <div class="image">
+                        <img src="room1.jpg" alt="">
+                        <i class="fa-solid fa-heart heart" id="heart1"></i>
+                        <i class="fa-solid fa-thumbs-up thumbs" id="thumbs1"></i>
+                    </div>
+                    <div class="content">
+                        <div class="card-heading">
+                            <h4>Beatiful family</4>
+                        </div>
+                        <div class="first-card-title">
+                            <p><i class="fa-solid fa-location-dot"></i>USA</p>
+                            <p><i class="fa-solid fa-user-large"></i>4 Room</p>
+                        </div>
+                        <div class="second-card-title">
+                            <p><i class="fa-solid fa-box"></i>450</p>
+                            <p><i class="fa-solid fa-key"></i>$1,20,000</p>
+                        </div>
+                        <div class="card-button-div">
+                            <button class="card-button"><a href="#">CONTACT REALTOR</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-width">
+                <div class="image">
+                    <img src="room2.jpg" alt="">
+                    <i class="fa-solid fa-heart heart" id="heart2"></i>
+                    <i class="fa-solid fa-thumbs-up thumbs" id="thumbs2"></i>
+                </div>
+                <div class="content">
+                    <div class="card-heading">
+                        <h4>Beatiful family</4>
+                    </div>
+                    <div class="first-card-title">
+                        <p><i class="fa-solid fa-location-dot"></i>USA</p>
+                        <p><i class="fa-solid fa-user-large"></i>4 Room</p>
+                    </div>
+                    <div class="second-card-title">
+                        <p><i class="fa-solid fa-box"></i>450</p>
+                        <p><i class="fa-solid fa-key"></i>$1,20,000</p>
+                    </div>
+                    <div class="card-button-div">
+                        <button class="card-button"><a href="#">CONTACT REALTOR</a></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-width">
+                <div class="image">
+                    <img src="room3.jpg" alt="">
+                    <i class="fa-solid fa-heart heart" id="heart3"></i>
+                    <i class="fa-solid fa-thumbs-up thumbs" id="thumbs3"></i>
+                </div>
+                <div class="content">
+                    <div class="card-heading">
+                        <h4>Beatiful family</4>
+                    </div>
+                    <div class="first-card-title">
+                        <p><i class="fa-solid fa-location-dot"></i>USA</p>
+                        <p><i class="fa-solid fa-user-large"></i>4 Room</p>
+                    </div>
+                    <div class="second-card-title">
+                        <p><i class="fa-solid fa-box"></i>450</p>
+                        <p><i class="fa-solid fa-key"></i>$1,20,000</p>
+                    </div>
+                    <div class="card-button-div">
+                        <button class="card-button"><a href="#">CONTACT REALTOR</a></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-width">
+                <div class="image">
+                    <img src="room4.jpg" alt="">
+                    <i class="fa-solid fa-heart heart" id="heart4"></i>
+                    <i class="fa-solid fa-thumbs-up thumbs" id="thumbs4"></i>
+                </div>
+                <div class="content">
+                    <div class="card-heading">
+                        <h4>Beatiful family</4>
+                    </div>
+                    <div class="first-card-title">
+                        <p><i class="fa-solid fa-location-dot"></i>USA</p>
+                        <p><i class="fa-solid fa-user-large"></i>4 Room</p>
+                    </div>
+                    <div class="second-card-title">
+                        <p><i class="fa-solid fa-box"></i>450</p>
+                        <p><i class="fa-solid fa-key"></i>$1,20,000</p>
+                    </div>
+                    <div class="card-button-div">
+                        <button class="card-button"><a href="#">CONTACT REALTOR</a></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-width">
+                <div class="image">
+                    <img src="room5.jpg" alt="">
+                    <i class="fa-solid fa-heart heart" id="heart5"></i>
+                    <i class="fa-solid fa-thumbs-up thumbs" id="thumbs5"></i>
+                </div>
+                <div class="content">
+                    <div class="card-heading">
+                        <h4>Beatiful family</4>
+                    </div>
+                    <div class="first-card-title">
+                        <p><i class="fa-solid fa-location-dot"></i>USA</p>
+                        <p><i class="fa-solid fa-user-large"></i>4 Room</p>
+                    </div>
+                    <div class="second-card-title">
+                        <p><i class="fa-solid fa-box"></i>450</p>
+                        <p><i class="fa-solid fa-key"></i>$1,20,000</p>
+                    </div>
+                    <div class="card-button-div">
+                        <button class="card-button"><a href="#">CONTACT REALTOR</a></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-width">
+                <div class="image">
+                    <img src="room6.jpg" alt="">
+                    <i class="fa-solid fa-heart heart" id="heart6"></i>
+                    <i class="fa-solid fa-thumbs-up thumbs" id="thumbs6"></i>
+                </div>
+                <div class="content">
+                    <div class="card-heading">
+                        <h4>Beatiful family</4>
+                    </div>
+                    <div class="first-card-title">
+                        <p><i class="fa-solid fa-location-dot"></i>USA</p>
+                        <p><i class="fa-solid fa-user-large"></i>4 Room</p>
+                    </div>
+                    <div class="second-card-title">
+                        <p><i class="fa-solid fa-box"></i>450</p>
+                        <p><i class="fa-solid fa-key"></i>$1,20,000</p>
+                    </div>
+                    <div class="card-button-div">
+                        <button class="card-button"><a href="#">CONTACT REALTOR</a></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="container-footer">
+            <div>
+                <div class="footer-icon">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <div class="footer-content">
+                    <p>info About the company</p>
+                    <p>Term of use Privacy</p>
+                    <p> Copy right &copy; <span id="year"></span> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section -->
+    <script>
+        var nav = document.getElementById("scriptnav");
+        function myFunction() {
+            nav.classList.toggle('active');
+        }
+        // first card
+
+        let heart1 = document.getElementById("heart1");
+        let thumbs1 = document.getElementById("thumbs1");
+
+        thumbs1.addEventListener('click', myFunc1);
+        function myFunc1() {
+            heart1.classList.toggle('like1');
+        }
+
+        // second card
+
+
+        let heart2 = document.getElementById("heart2");
+        let thumbs2 = document.getElementById("thumbs2");
+
+        thumbs2.addEventListener('click', myFunc2);
+        function myFunc2() {
+
+            heart2.classList.toggle('like2');
+        }
+
+        // thrid card
+
+        let heart3 = document.getElementById("heart3");
+        let thumbs3 = document.getElementById("thumbs3");
+        thumbs3.addEventListener('click', () => {
+            heart3.classList.toggle('like3');
+        })
+
+        //fourth card
+
+
+        let heart4 = document.getElementById("heart4");
+        let thumbs4 = document.getElementById("thumbs4");
+        thumbs4.addEventListener("click", () => {
+            heart4.classList.toggle("like4");
+        })
+
+        //fifth card
+
+        let heart5 = document.getElementById("heart5");
+        let thumbs5 = document.getElementById("thumbs5");
+        thumbs5.addEventListener("click", () => {
+
+            heart5.classList.toggle("like5");
+
+        })
+
+        //sixth card
+
+        let heart6 = document.getElementById("heart6");
+        let thumbs6 = document.getElementById("thumbs6");
+        thumbs6.addEventListener("click", () => {
+
+            heart6.classList.toggle("like6");
+
+        })
+
+
+        let date = new Date();
+
+        let year = date.getFullYear();
+        document.getElementById("year").innerHTML = year;
+    </script>
+</body>
+
+</html>

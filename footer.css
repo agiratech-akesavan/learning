@@ -1,0 +1,22 @@
+.footer{
+    background-color: black;
+    color:white;
+}
+.container-footer{
+    display: flex;
+    justify-content: center;
+    margin:0rem 8rem 0rem 8rem;
+}
+.footer-content p{
+    padding:.5rem 0rem .25rem 0rem;
+    text-align: center;
+}
+.footer-icon {
+    margin:1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-icon a{
+    font-size: 1.5rem;
+    color:white;
+}
