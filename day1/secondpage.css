@@ -1,0 +1,48 @@
+.secondheading {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.secondcontent {
+    border-bottom: 2px solid black;
+}
+
+/* .paragraph {
+    display: flex;
+    flex-wrap:nowrap;
+} */
+
+/* .aside {
+    border: 2px solid white;
+    margin: 20px;
+    padding: 10px;
+}
+
+.aside1 {
+    border: 2px solid white;
+    margin: 20px;
+    padding: 10px;
+}
+
+.aside2 {
+    border: 2px solid white;
+    margin: 20px;
+    padding: 10px;
+}
+
+.aside3 {
+    border: 2px solid white;
+    margin: 20px;
+    padding: 10px;
+} */
+
+p {
+    text-align: justify;
+}
+.secondsideheading{
+    font-size:2.5rem;
+    text-align:center;
+}
+.registeration{
+    font-size:1.5rem;
+}

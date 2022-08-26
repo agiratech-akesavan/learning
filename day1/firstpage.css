@@ -1,0 +1,45 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container-fluid {
+    background-size: cover;
+    height: 98vh;
+}
+
+.firstpage {
+    background-color:rgba(0, 0, 0, 0.493);
+    height: 100%;
+
+} 
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    /* margin-top: 20%; */
+    font-size: 3rem;
+}
+
+/* h1::first-letter {
+    font-size: 3rem;
+    color: rgb(247, 34, 34);
+} */
+
+.agira{
+    font-size:4rem;
+    color: rgb(247, 34, 34);
+}
+
+.firstcontent {
+    color: white;
+    text-align: center;
+}
