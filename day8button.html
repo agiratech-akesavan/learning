@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            position: relative;
+            top:20px;
+            left:30px;
+            width:3rem;
+            /* border:2px solid black; */
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn" onclick="myFunction()">0</button>
+
+    <script>
+        let count=0;
+        function myFunction(){
+            // document.getElementById("btn").innerHTML=count;
+            if(count>3){
+                document.getElementById("btn").innerHTML=count;
+                count=count+5;
+            }else{
+                count++;
+                document.getElementById("btn").innerHTML=count;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
