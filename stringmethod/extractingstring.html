@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //slice() method remove the required content in string.
+        //slice(starting position,ending position);
+
+        let txt="hello world";
+
+        console.log(txt.slice(0,6));           //hello 
+
+        //we doesn't give second value of the slice method is take after all value of the string.
+
+        console.log(txt.slice(3));             //lo world
+
+        // given value will be negative is take at the reserve side of the string.
+        
+        console.log(txt.slice(-11,-6));        //hello
+
+        //we doesn't give second value of the slice method is take before  all value of the string.
+
+        console.log(txt.slice(-3));            //rld
+
+
+
+        //substring () method same like the of slice method();
+
+        console.log(txt.substring(7));         //world
+
+
+
+        //substr () method same like both slice() and substring() method, but second value the method is 
+        //required length of the string.
+        //substr(starting position,required lenght of string)
+
+        console.log(txt.substr(2,5));        //llo w
+    </script>
+</body>
+</html>

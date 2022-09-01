@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        //this method based on the index position find the what string value place there.
+        //only one charAt value will be printed.
+
+        let txt="Hello world";
+
+        let charAt=txt.charAt(0);
+
+        console.log(charAt);           //h
+
+
+        //charCodeAt method used find the unicode of the given charater.
+        //unicode will be UTF-16 (integer 0 to 65535)
+
+        let charCodeAt=txt.charCodeAt(0);
+        console.log(charCodeAt);          //72
+
+        console.log(txt.charAt(2));       //l
+        console.log(txt.charCodeAt(2));   //108
+
+
+        console.log(txt.charAt(6));      //w
+        console.log(txt.charCodeAt(6))   //119
+
+
+    </script>
+</body>
+</html>

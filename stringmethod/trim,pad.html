@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //trim () method ued to remove the unwant white of the string will be removed.
+        //trim() - this method remove the white of the both side.
+        //trimstart() -this method remove the white of the starting postion.
+        //trimEnd() -this method remove the white of the end of the string positon.
+
+
+        let txt="   hello world     ";
+             
+        //it take the length with white space.
+
+        console.log(txt.length);            //19
+
+        let trim=txt.trim();
+        console.log(trim.length);           //11   
+
+        //trimStart()
+
+        let trimStart=txt.trimStart();
+        console.log(trimStart.length);     //16
+
+        //trimEnd()
+
+        let trimEnd=txt.trimEnd();
+
+        console.log(trimEnd.length);       //14
+
+
+        //pad() method used to add the same content in string value of the front and back both side.
+        //padStart(required length, required content) -it's add the front of the string.
+
+        let text="5";
+
+        let padstart=text.padStart(4,"x");
+        console.log(padstart);             //xxx5
+
+        //without the we apply second value of padStart() it's increase length of the string.
+        //it give white space front of the string. 
+
+        console.log(text.padStart(4));    //4
+
+        //padEnd() it add the required content in end if the sring. like 5 is the string,but we add the 5000 using the padEnd(4,"0");
+
+        let padend=text.padEnd(4,"0");
+        console.log(padend);              //5000;
+        
+    </script>
+
+</body>
+</html>

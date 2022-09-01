@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //this method used to find the inside of array object value.
+        
+        const person=[
+            {
+                name:"hello",
+                word:5
+            },
+            {
+                name:"hi",
+                word:2
+            },  
+             {
+                name:"world",
+                word:5
+            }
+        ]
+
+        const find=person.find(person => person.name === "hello");
+        console.log(find);
+
+    </script>
+
+</body>
+</html>

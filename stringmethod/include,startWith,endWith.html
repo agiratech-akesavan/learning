@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let text="Hello world!, India";
+
+        //include method used check the given sting value and output is true or false.
+        //this method is casesentive.
+        
+        let includes=text.includes("world");    //true
+        console.log(includes);
+
+        //includes(string value,correct position) this used to string value and correct position of the string.
+
+        let txt1=text.includes("world",7);    //false
+        console.log(txt1);
+
+
+        //startWith method is same like the includes ,but it's only consider the first value of the string.
+
+        let startWith=text.startsWith("Hello",4);     
+        console.log(startWith);                //false
+
+        console.log(text.startsWith("Hello"))  //true
+
+
+    </script>
+
+</body>
+</html>

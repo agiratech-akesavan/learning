@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //this method used to easy to calculated the value of the array.this method original of the array.
+
+        // reduce(accumulator,currentvalue,index,array)
+
+
+        // const number=[-12,10,3,4,11,5,7,3,8];
+
+        var arry = [-12,7,9];
+        arry = arry.map( s => Math.abs(s));
+
+        const max=arry.reduce(myFunc)
+
+        function myFunc(accumulator,currentvalue){
+            if (accumulator > currentvalue){
+                return accumulator;
+            }
+            else{
+                return currentvalue;
+            }
+        }
+        console.log(max);
+
+
+    </script>
+</body>
+</html>

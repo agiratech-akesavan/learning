@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //using backward slash string will be one line value write in next line or new line.
+        let text = "Hello \
+        word";
+
+        document.write(text);
+
+
+        //new String key used create the string value into string object data type.
+
+        text = new String("hello");
+        console.log(typeof text);
+
+
+        //string templete used to easy to connect the javascript other data type to string data.
+        //using the  (` `) ifun.
+
+        const person = {
+            first: "k",
+            second: "7"
+        }
+
+        const i = `hello ${person.first}+${person.second}`;
+
+        console.log(i)
+
+        const txt="hello \"hai\"";
+
+        console.log(txt);
+
+
+        //length key used to count the string length.
+
+        let count="hello world!";
+
+        console.log(count.length);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    
+    <script>
+
+        //replace () method doesn't change the string value.it pick the string value.
+
+        const txt="hello world";
+
+        let casesentive=txt.replace("WORLD","India");          //hello India
+        console.log(casesentive);
+
+        //it doesn't change the string value. because of the replace method is casesentive.
+        //so we use the regular expersion key word. like i-incasesentive,g-global value.
+
+        let incasesentive=txt.replace(/world/i,"India");          //hello world
+        console.log(incasesentive);
+
+        let car="BWM car color is blue,and audi car color is blue";     //BWM car color is red,and audi car color is red
+        let global=car.replace(/blue/gi,"red");
+        console.log(global);
+
+        //concat () method is contact the two string value.it's working like the plus operator(+);
+
+        let txt1="hello";
+        let txt2=" world!";
+
+        console.log(txt1.concat(txt2));       //hello wolrd!
+
+
+
+    </script>
+
+
+</body>
+</html>
