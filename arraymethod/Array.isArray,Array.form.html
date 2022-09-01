@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //this method used to find the array is array or not.
+
+        const num=[1,2,3]
+        // console.log(Array.isArray(num));
+
+
+        //this used to convert into the primitive data type in array value.
+
+
+        const number="1234";
+
+        // const value=Array.from(number);
+        //console.log(value)//but is string value so it's  convert into the number.
+
+        const numbertype=Array.from(number,Number);
+
+        console.log(numbertype);// this used convert into the string data type to number data type.
+
+    </script>
+</body>
+</html>

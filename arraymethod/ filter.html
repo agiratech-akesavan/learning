@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //this method used the filter the value from the array. it's doesn't change original array value.
+        //most used for the method in filter the array value.
+
+        const number=[1,2,3,4,5,12,3,2,3];
+
+        // const res = number.filter(item => item > 2);
+        const res = number.filter(item => item > 2);
+        //this working on the more the 2 array value is print it.
+        console.log(res); 
+
+
+        const obj=[
+            {
+                name:"son",
+                age:15
+            },
+            {
+                name:"mother",
+                age:33
+            }, {
+                name:"father",
+                age:35
+            }, {
+                name:"grendfather",
+                age:60
+            },
+
+        ];
+
+        // const filtering=obj.filter((obj) => obj.age > 18 && obj.age < 50 );
+        // console.log(filtering );
+
+        const filtering=obj.filter(family);
+
+        function family(obj){
+            return obj.age > 18 && obj.age < 50 ;
+        }
+
+        console.log(filtering);
+
+
+        // const 
+
+
+    </script>
+</body>
+</html>

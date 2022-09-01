@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //this method is used to compare the given value and array value. output is true or false.
+
+        const number=[2,3,4,5,6];
+
+        const some=number.some(item => item > 4);
+        // const some=number.some(myFunc);
+        // function myFunc(item){
+        //     return item > 2;
+        // }
+        console.log("some() method " + some);
+
+        //it's same like the some() method, but the it's compare the given value and array value. 
+
+        const every=number.every(item => item >= 2 );
+
+        console.log("every() method " + every);
+
+
+        // const map=number.map((item) => item*2);
+
+        // console.log(map);
+
+
+
+    </script>
+</body>
+</html>

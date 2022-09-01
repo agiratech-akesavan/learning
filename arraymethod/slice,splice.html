@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //this method ued remove the array value based on given value.it's doesn't change the original array.
+        //first value of the slice method is initial index number and last value is required index number.
+
+        const num=[1,2,3,4,5,6];
+
+        const slice=num.slice(1,4);
+        console.log(slice);
+
+        //it's doesn't stored in new key words.
+        //this same like the slice() method,but splice used to cahnge the array value also.
+        //first and second value of the splice same like the slice.but  next value of the splice is insert value of the array.
+
+        num.splice(0,1,10,11);
+        console.log(num);
+
+
+    </script>
+
+</body>
+</html>
