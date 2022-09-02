@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 33%;
+        }
+
+        #res {
+            background-color: lightgray;
+            border: solid;
+            height: 48px;
+            font-size: 20px;
+        }
+
+        #btn0,
+        #btn1 {
+            background-color: lightgreen;
+            color: brown;
+        }
+
+        #btnClr,
+        #btnEql {
+            background-color: darkgreen;
+            color: white;
+            font-weight: bold;
+        }
+
+        #btnSum,
+        #btnSub,
+        #btnMul,
+        #btnDiv {
+            background-color: black;
+            color: red;
+            font-weight: bold;
+        }
+
+        #btns button {
+            width: 25%;
+            height: 36px;
+            font-size: 18px;
+            margin: 0;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="res">
+
+    </div>
+    <div id="btns">
+        <button id="btn0" onclick="zero()">0</button>
+        <button id="btn1" onclick="one()">1</button>
+        <button id="btnClr" onclick="clear()">C</button>
+        <button id="btnEql" onclick="equl()">=</button>
+        <button id="btnSum" onclick="sum()">+</button>
+        <button id="btnSub" onclick="sub()">-</button>
+        <button id="btnMul" onclick="mul()">*</button>
+        <button id="btnDiv" onclick="div()">/</button>
+    </div>
+
+    <script>
+        function clear() {
+            res.innerHTML = "";
+        }
+        function equl() {
+            let s = res.innerHTML;
+            s = Math.floor(eval(s.replace(/([01]+)/g, '0b$1'))).toString(2);
+            res.innerHTML = s;
+        }
+        function zero() {
+            res.innerHTML += "0";
+        }
+        function one() {
+            res.innerHTML += "1";
+        }
+        function sum() {
+            res.innerHTML += "+";
+        }
+        function sub() {
+            res.innerHTML += "-";
+        }
+        function mul() {
+            res.innerHTML += "*";
+        }
+        function div() {
+            res.innerHTML += "/";
+        }
+
+    </script>
+</body>
+
+</html>
