@@ -76,7 +76,7 @@ input{
     margin:auto;
     width:90%;
     height:60vh;
-    overflow-x: scroll;
+    overflow-y:auto;
     background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 1px 1.5px rgba(128, 128, 128, 0.555);
 }
@@ -85,11 +85,60 @@ input{
 }
 #output{
     list-style-type: none;
+    display: inline;
+    position: relative;
+    /* left:20px; */
+    margin: 2rem;
+}
+.class{
+    display:flex;
+}
+input[type="checkbox"]{
+ display: inline;
+ position: relative;
+ /* top:-40px; */
+ /* left:-20px; */
+}
+#arrayoutput{
+    /* position: relative; */
+    /* top:-25px; */
+    /* left:40px; */
+    /* width:50%; */
+    /* border-bottom:1px solid black; */
+    /* padding-bottom:3px; */
+    /* padding-left:10px; */
+    font-size:1.3rem;
+    /* font-weight:700; */
+}
+#arroutput{
+    position:relative;
+    left:58px;
+    font-size:1.3rem;
+    font-weight:700;
+    display: inline-block;
+}
+#date{
+    position: relative;
+    top:30px;
+    /* left:30px; */
+    border-top:1px solid black;
+    padding-top: 3px;
+    padding-left:8px;
+}
+/* delete{
+    color:rgb(221, 40, 40);
+    position:relative;
+    font-size:1.5rem; */
+    /* top:-50px; */
+    /* right:-200px; */
+    /* float:right; */
+/* } */
+
+#delete{
     display: block;
 }
-
-input[type="checkbox"]{
- display: block;
+#del{
+    /* float: right; */
 }
 
 
