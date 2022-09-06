@@ -86,7 +86,7 @@ input{
 #output{
     list-style-type: none;
     display: inline;
-    position: relative;
+    /* position: relative; */
     /* left:20px; */
     margin: 2rem;
 }
@@ -95,35 +95,40 @@ input{
 }
 input[type="checkbox"]{
  display: inline;
- position: relative;
- /* top:-40px; */
- /* left:-20px; */
+ padding:0 20px;
+ /* position: relative; */
+ left:1.5rem;
+ /* top:-20px; */
 }
 #arrayoutput{
-    /* position: relative; */
+    position: relative;
     /* top:-25px; */
     /* left:40px; */
     /* width:50%; */
     /* border-bottom:1px solid black; */
     /* padding-bottom:3px; */
-    /* padding-left:10px; */
+    /* margin:20px; */
     font-size:1.3rem;
     /* font-weight:700; */
 }
 #arroutput{
-    position:relative;
-    left:58px;
-    font-size:1.3rem;
+    /* position:relative; */
+    font-size:1.4rem;
     font-weight:700;
-    display: inline-block;
+    /* margin-top:-20px; */
+    padding:0 20px;
+
+    /* top:-30px;
+    left:40px; */
 }
 #date{
-    position: relative;
-    top:30px;
+    /* position: relative; */
     /* left:30px; */
-    border-top:1px solid black;
-    padding-top: 3px;
-    padding-left:8px;
+    /* border-top:1px solid black; */
+    /* padding-top: 3px;
+    padding-left:8px; */
+    padding:0 20px;
+
 }
 /* delete{
     color:rgb(221, 40, 40);
@@ -135,10 +140,19 @@ input[type="checkbox"]{
 /* } */
 
 #delete{
-    display: block;
+    /* display: block; */
+    /* position: relative; */
+    /* left:20px;
+    top:-20px; */
+    padding:0 20px;
+
 }
-#del{
-    /* float: right; */
+.edit{
+    /* position: relative; */
+    /* top:-20px;
+    left:10px; */
+     padding:0 20px;
+
 }
 
 

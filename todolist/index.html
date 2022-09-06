@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
@@ -41,9 +41,9 @@
                             All
                         </p>
                         <ul class="list" id="list">
-                            <li class="dropdown" onclick="enterAll()">All</li>
-                            <li class="dropdown" onclick="enterActive()">Active</li>
-                            <li class="dropdown" onclick="enterCompleted()">Complete</li>
+                            <li class="dropdown" onclick="enterAll()" id="all">All</li>
+                            <li class="dropdown" onclick="enterActive()" id="active">Active</li>
+                            <li class="dropdown" onclick="enterCompleted()" id="completed">Complete</li>
                         </ul>
                     </div>
                 </div>
@@ -111,17 +111,27 @@
         let createcheckbox = "";
         let create = "";
         let deleteicon = "";
+        let editicon = "";
 
         let arr = [];
         let inputs = {};
 
         function add() {
+
             createcheckbox = document.createElement("input");
             createcheckbox.type = "checkbox";
             createcheckbox.id = "checkbox";
 
+            // createcheckbox.className = "delete";
+
             deleteicon = document.createElement("i");
             deleteicon.id = "delete";
+            deleteicon.className = "delete";
+
+            editicon = document.createElement("i");
+            editicon.id = "edit";
+            editicon.className = "edit";
+
 
             let dates = new Date();
             let day = dates.getDate();
@@ -144,22 +154,30 @@
                     "delete": `<button id="del">
                     <i class="fa-solid fa-trash"></i>
                     </button>`,
+                    "edit": `<button id="edi">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        </button>`
                 }
 
                 arr.push(inputs);
 
                 let listItem = document.createElement("li");
                 create = document.createElement("span");
-                create.className = "delete";
                 create.id = "arrayoutput";
+
+
 
                 let arroutput = document.createElement("span");
                 arroutput.id = "arroutput";
+                arroutput.className = "arroutput";
+
+
 
 
                 // create.innerHTML=arr.pop();
                 let i = arr[arr.length - 1];
                 // console.log(arr.length);
+                // arroutput.value=i.name;
                 arroutput.innerHTML = i.name;
                 // let sum=createcheckbox+create;
                 // display.appendChild(create);
@@ -167,13 +185,17 @@
                 // let date=arr[arr.length - 1];
 
                 span = document.createElement("span");
+                // span.className = "delete";
                 span.id = "date";
                 span.innerHTML = i.date;
+                editicon.innerHTML = i.edit;
                 deleteicon.innerHTML = i.delete;
+
 
                 create.appendChild(createcheckbox);
                 create.appendChild(arroutput);
                 create.appendChild(span);
+                create.appendChild(editicon);
                 create.appendChild(deleteicon);
                 listItem.appendChild(create);
                 display.appendChild(listItem);
@@ -202,9 +224,26 @@
                 remove[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
+                    arr.splice(i,1);
 
                 }
             }
+
+            // let edit = document.getElementsByClassName("edit");
+
+            // for (let i = 0; i < edit.length; i++) {
+            //     edit[i].onclick = function () {
+
+            //         // let arroutputedit = document.getElementsByClassName("arroutput");
+            //         // let arroutputvalue = arroutputedit.innerHTML;
+
+            //         arroutputedit[i].innerHTML = `<input type="text">`;
+
+
+
+            //     }
+            // }
+
 
 
 
@@ -213,6 +252,51 @@
         enterCompleted();
         enterActive();
         enterAll();
+
+
+        let active = document.getElementById("active").addEventListener("click", () => {
+            // let checkboxvalue = document.getElementById("checkbox").checked;
+            // console.log("hello");
+            let filter=arr.filter((item => item.input.checked === false));
+            // console.log(filter.length);
+
+            // display.style.display="none";
+            let listItem = document.createElement("li");
+            create = document.createElement("span");
+            create.id = "arrayoutput";
+
+            let i=filter;
+            create.innerHTML=filter.name;
+
+            listItem.appendChild(create);
+            display.appendChild(listItem);
+
+
+            // let listItem = document.createElement("li");
+            // listItem.innerHTML=filter.input;
+            // display.appendChild(listItem);
+          
+
+            // console.log(checkboxvalue);
+        })
+
+        let completed = document.getElementById("completed").addEventListener("click", () => {
+            // console.log("hello");
+            // let checkboxvalue=document.getElementById("checkbox").value;
+            // if (checkboxvalue !== 1) {
+            //     console.log("completed")
+            // } else {
+            //     console.log("wh");
+            // }
+            let filter=arr.filter((item => item.input.checked === true));
+            console.log(filter);
+
+        });
+
+        document.getElementById("all").addEventListener("click",()=>{
+            let filter=arr.filter(item => item.input.checked === true || item.input.checked === false);
+            console.log(filter);
+        })
 
 
 
