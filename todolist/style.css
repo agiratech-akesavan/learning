@@ -154,5 +154,10 @@ input[type="checkbox"]{
      padding:0 20px;
 
 }
+.activeoutput{
+    display:none;
+}
+
+
 
 
