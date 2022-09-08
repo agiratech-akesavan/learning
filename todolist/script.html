@@ -47,18 +47,34 @@
                         </ul>
                     </div>
                 </div>
-                <div class="contentdisplay  mt-4">
-                    <div class="contenthead">
-                        <h4 class="p-3">TODO LISTS</h4>
-                    </div>
-                    <div class="output">
-                        <ul id="output">
-
-                        </ul>
-                        <!-- <ul id="activeoutput"></ul> -->
+                <div class="searchbar row mt-2">
+                    <div class="col-12">
+                        <!-- <div id="searchbar" class="searchbar" onclick="search()">
+                            <i class="fa-solid fa-magnifying-glass" ></i> 
+                        </div> -->
+                        <input type="text" id="searchinput" class="searchinput" onkeyup="search()" placeholder="search...">
                     </div>
                 </div>
             </div>
+            <div class="contentdisplay  mt-4">
+                <div class="contenthead">
+                    <h4 class="p-3">TODO LISTS</h4>
+                </div>
+                <div class="output">
+                    <div id="allouputdiv">
+                        <ul id="output">
+
+                        </ul>
+                    </div>
+                    <div id="activeoutputdiv">
+                        <ul id="activeoutput"></ul>
+                    </div>
+                    <div id="completedoutputdiv">
+                        <ul id="completedoutput"></ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -231,7 +247,7 @@
             for (let i = 0; i < remove.length; i++) {
                 remove[i].onclick = function () {
                     var div = this.parentElement;
-                    div.style.display = "none";
+                    // div.style.display = "none";
                     arr.splice(i, 1);
 
                 }
@@ -257,11 +273,22 @@
 
 
         }
+
+        function search(){
+            // document.getElementById("searchinput").classList.toggle="onsearchinput";
+            // let searcharray=arr.filter((item) => item.name === )
+
+
+        }
+
         enterCompleted();
         enterActive();
         enterAll();
 
+        let searchbar=document.getElementById("searchbar");
+
         let activeoutput = document.getElementById("activeoutput");
+        let completedoutput = document.getElementById("completedoutput");
         let filteractive = "";
         let activelength = "";
 
@@ -269,10 +296,16 @@
             // let checkboxvalue = document.getElementById("checkbox").checked;
             // console.log("hello");
             filteractive = arr.filter((item => item.check.checked === false));
-            // console.log(filter.length);
+            // console.log(filteractive);
 
-            // display.style.display="none";
-            console.log(filteractive);
+            display.style.display = "none";
+            while (completedoutput.hasChildNodes()) {
+                completedoutput.removeChild(completedoutput.firstChild);
+            }
+            while (activeoutput.hasChildNodes()) {
+                activeoutput.removeChild(activeoutput.firstChild);
+            }
+
 
             // if(filteractive.length == filteractive.length){
             // activeoutput.style.display="block";
@@ -281,14 +314,9 @@
             activelength = filteractive.length;
             // console.log(activelength);
 
-            let list = document.getElementsByTagName("li").length - 3;
-            while (0 < list) {
-                lists();
-                list--;
-            }
-            function lists() {
-                display.removeChild(display.firstElementChild)
-            }
+            // while (display.hasChildNodes()) {
+            // display.removeChild(display.firstChild);
+            // }
 
             // if(activelength === activeoutputlength ){
             //     // console.log("unchanged");
@@ -325,8 +353,12 @@
                 arroutput.className = "arroutput";
 
                 date = document.createElement("span");
-                // span.className = "delete";
+                date.className = "delete";
                 date.id = "date";
+
+                editicon = document.createElement("i");
+                editicon.id = "edit";
+                editicon.className = "edit";
 
                 deleteicon = document.createElement("i");
                 deleteicon.id = "delete";
@@ -337,14 +369,16 @@
                 arroutput.innerHTML = i.name;
                 date.innerHTML = i.date;
                 createcheckbox.innerHTML = i.check;
+                editicon.innerHTML = i.edit;
                 deleteicon.innerHTML = i.delete;
 
                 create.appendChild(createcheckbox)
                 create.appendChild(arroutput);
                 create.appendChild(date);
+                create.appendChild(editicon);
                 create.appendChild(deleteicon);
                 listItem.appendChild(create);
-                display.appendChild(listItem);
+                activeoutput.appendChild(listItem);
 
 
             }
@@ -354,7 +388,7 @@
                 remove[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
-                    filteractive.splice(i, 1);
+                    // let activesplice=filteractive.splice(i,1);
                 }
             }
             // }
@@ -368,7 +402,8 @@
 
 
             // console.log(checkboxvalue);
-        })
+        });
+
 
         let completed = document.getElementById("completed").addEventListener("click", () => {
             // console.log("hello");
@@ -378,36 +413,23 @@
             // } else {
             //     console.log("wh");
             // }
-            let filter = arr.filter((item => item.check.checked === true));
-            console.log(filter);
+            let filtercompleted = arr.filter((item => item.check.checked === true));
+            // console.log(filtercompleted);
+            
 
-        });
+            display.style.display = "none";
 
-        let activeoutputlength = "";
-        document.getElementById("all").addEventListener("click", () => {
-            let filterall = arr.filter(item => item.check.checked === true || item.check.checked === false);
-            // console.log(filter);
-
-            // console.log(filter.length);
-
-            // activeoutput.removeChild(activeoutput.children[0]);
-            // activeoutput.style.display="none";
-            // activeoutputlength=filteractive.length;
-            // console.log("all="+activeoutputlength);
-            // display.style.display="block";
-            let list = document.getElementsByTagName("li").length - 3;
-            console.log(list);
-            while (0 < list) {
-                lists();
-                list--;
+            while (activeoutput.hasChildNodes()) {
+                activeoutput.removeChild(activeoutput.firstChild);
             }
 
-            function lists() {
-                display.removeChild(display.firstElementChild)
+            while (completedoutput.hasChildNodes()) {
+                completedoutput.removeChild(completedoutput.firstChild);
             }
-            // console.log(filterall);
-            for (let j = 0; j < filterall.length; j++) {
-                // console.log(filterall[j]);
+
+            // console.log(filtercompleted);
+
+            for (let j = 0; j < filtercompleted.length; j++) {
 
                 let listItem = document.createElement("li");
 
@@ -425,28 +447,125 @@
                 arroutput.className = "arroutput";
 
                 date = document.createElement("span");
-                // span.className = "delete";
+                date.className = "delete";
                 date.id = "date";
+
+                editicon = document.createElement("i");
+                editicon.id = "edit";
+                editicon.className = "edit";
 
                 deleteicon = document.createElement("i");
                 deleteicon.id = "delete";
                 deleteicon.className = "delete";
 
 
-                let i = filteractive[j];
+                let i = filtercompleted[j];
                 arroutput.innerHTML = i.name;
                 date.innerHTML = i.date;
                 createcheckbox.innerHTML = i.check;
+                editicon.innerHTML = i.edit;
                 deleteicon.innerHTML = i.delete;
 
                 create.appendChild(createcheckbox)
                 create.appendChild(arroutput);
                 create.appendChild(date);
+                create.appendChild(editicon);
                 create.appendChild(deleteicon);
                 listItem.appendChild(create);
-                display.appendChild(listItem);
+                completedoutput.appendChild(listItem);
 
-             
+
+            }
+
+
+        });
+
+        // let activeoutputlength = "";
+        document.getElementById("all").addEventListener("click", () => {
+
+            // if(arr.length === 0){
+            //     console.log("hello")
+            //     searchbar.className="offsearchbar";
+            // }else{
+            //     searchbar.className="onsearchbar";    
+            //     // searchbar.innerHTML="hello";
+            //     console.log("what")
+            // }
+            
+            let filterall = arr.filter(item => item.check.checked === true || item.check.checked === false);
+            // console.log(filterall);
+
+            // console.log(filter.length);
+
+            // activeoutput.removeChild(activeoutput.children[0]);
+            // activeoutput.style.display="none";
+            // activeoutputlength=filteractive.length;
+            // console.log("all="+activeoutputlength);
+            // display.style.display="block";
+            // let list = document.getElementsByTagName("li").length - 3;
+            // console.log(list);
+            // while (0 < list) {
+            //     lists();
+            //     list--;
+            // }
+
+            // function lists() {
+            //     display.removeChild(display.firstElementChild)
+            // }
+
+
+            while (activeoutput.hasChildNodes()) {
+                activeoutput.removeChild(activeoutput.firstChild);
+            }
+            while (completedoutput.hasChildNodes()) {
+                completedoutput.removeChild(completedoutput.firstChild);
+            }
+            display.style.display = "block";
+
+            // console.log(filterall);
+            for (let j = 0; j < filterall.length; j++) {
+                // console.log(filterall[j]);
+
+                // let listItem = document.createElement("li");
+
+                // create = document.createElement("span");
+                // create.id = "arrayoutput";
+
+
+                // createcheckbox = document.createElement("input");
+                // createcheckbox.type = "checkbox";
+                // createcheckbox.id = "checkbox";
+                // createcheckbox.className = "checkbox";
+
+                // arroutput = document.createElement("span");
+                // arroutput.id = "arroutput";
+                // arroutput.className = "arroutput";
+
+                // date = document.createElement("span");
+                // span.className = "delete";
+                // date.id = "date";
+
+                // deleteicon = document.createElement("i");
+                // deleteicon.id = "delete";
+                // deleteicon.className = "delete";
+
+
+
+                // let i = filterall[j];
+                // arroutput.innerHTML = i.name;
+                // date.innerHTML = i.date;
+                // createcheckbox.innerHTML = i.check;
+                // deleteicon.innerHTML = i.delete;
+
+                // create.appendChild(createcheckbox)
+                // create.appendChild(arroutput);
+                // create.appendChild(date);
+                // create.appendChild(editicon);
+                // create.appendChild(deleteicon);
+                // listItem.appendChild(create);
+                // display.appendChild(listItem);
+
+
             }
 
 

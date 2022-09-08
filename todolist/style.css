@@ -1,9 +1,9 @@
 
 .section{
     /* border:2px solid black; */
+    margin:0 25%;
 }
 .option{
-    margin:0 25%;
     /* border:2px solid black */
 }
 .value{
@@ -85,19 +85,30 @@ input{
 }
 #output{
     list-style-type: none;
-    display: inline;
+    display: block;
     /* position: relative; */
     /* left:20px; */
-    margin: 2rem;
+    /* margin: 2rem; */
 }
-.class{
+#activeoutput{
+    list-style-type: none;
+    display: block;
+}
+#completedoutput{
+    list-style-type: none;
+    display: block;
+}
+/* .class{
     display:flex;
-}
+} */
+
 input[type="checkbox"]{
  display: inline;
- padding:0 20px;
+ transform: scale(2);
+ border:1px solid black;
+ /* padding:0 20px; */
  /* position: relative; */
- left:1.5rem;
+ /* left:1.5rem; */
  /* top:-20px; */
 }
 #arrayoutput{
@@ -158,6 +169,28 @@ input[type="checkbox"]{
     display:none;
 }
 
+.searchbar{
+    /* position: absolute; */
+    font-size:1.5rem;
+    visibility: visible;
+}
+
+/* .onsearchbar{
+    visibility: visible;
+}
+
+.offsearchbar{
+    visibility: hidden;
+} */
 
 
+.searchinput{
+    /* display: none; */
+    /* visibility: hidden; */
+}
 
+.onsearchinput{
+    /* display: block;
+     */
+     visibility: visible;
+}
