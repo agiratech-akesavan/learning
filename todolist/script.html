@@ -53,6 +53,7 @@
                             <i class="fa-solid fa-magnifying-glass" ></i> 
                         </div> -->
                         <input type="text" id="searchinput" class="searchinput" onkeyup="search()" placeholder="search...">
+                        <!-- <input type="submit" onclick="search()"> -->
                     </div>
                 </div>
             </div>
@@ -165,8 +166,12 @@
             k++;
 
             // let deletesymbol=Symbol("uniqune delete box");
+            let reg=/^[0-9]/;
 
-            if (input.value == "") {
+            let regular=input.value;
+            let checkreg=reg.test(regular)
+
+            if (checkreg) {
                 input.classList = "formvalidation"
             } else {
                 inputs = {
@@ -186,8 +191,9 @@
 
                 listItem = document.createElement("li");
                 listItem.className = "arrayoutput";
-                create = document.createElement("span");
-                create.id = "arrayoutput";
+                // create = document.createElement("span");
+                // create.className="arraoutput"
+                // create.id = "arrayoutput";
 
 
 
@@ -216,12 +222,12 @@
                 deleteicon.innerHTML = i.delete;
 
 
-                create.appendChild(createcheckbox);
-                create.appendChild(arroutput);
-                create.appendChild(date);
-                create.appendChild(editicon);
-                create.appendChild(deleteicon);
-                listItem.appendChild(create);
+                listItem.appendChild(createcheckbox);
+                listItem.appendChild(arroutput);
+                listItem.appendChild(date);
+                listItem.appendChild(editicon);
+                listItem.appendChild(deleteicon);
+                // listItem.appendChild(create);
                 display.appendChild(listItem);
 
             }
@@ -247,7 +253,7 @@
             for (let i = 0; i < remove.length; i++) {
                 remove[i].onclick = function () {
                     var div = this.parentElement;
-                    // div.style.display = "none";
+                    div.style.display = "none";
                     arr.splice(i, 1);
 
                 }
@@ -260,7 +266,6 @@
 
             //         // let arroutputedit = document.getElementsByClassName("arroutput");
             //         // let arroutputvalue = arroutputedit.innerHTML;
-
             //         arroutputedit[i].innerHTML = `<input type="text">`;
 
 
@@ -273,10 +278,113 @@
 
 
         }
+        
+        let searchbar=document.getElementById("searchinput");
+        let ulsearch=document.getElementById("output");
+        let lisearch=ulsearch.getElementsByTagName("li");
+        let spanarraysearch='';
+        let spanarrsearch='';
+        let spansearchText='';
 
         function search(){
             // document.getElementById("searchinput").classList.toggle="onsearchinput";
             // let searcharray=arr.filter((item) => item.name === )
+            let searchbaroutput=searchbar.value;
+            // console.log(searchbaroutput);
+            // for(let i=0;i<lisearch.length;i++){
+                
+                // let j=arr[i]
+                // let indexnu=arr[i].name.indexOf(searchbaroutput);
+                let searchbaroutputlength=searchbaroutput.length;
+                let arrnamelist="";
+
+                for(let i=0;i<arr.length;i++){
+                    let arrvalue=arr[i];
+                    arrnamelist=arrvalue.name.split("").length;
+
+                }
+                // console.log(arrnamelist)
+
+                for(let j=1;j<arrnamelist;j++){
+                for(let i=0;i<searchbaroutputlength;i++){
+                
+                let indexnu=arr.filter((item) => item.name.split("")[i] == searchbaroutput.split("")[j]);
+                
+                console.log(indexnu)
+
+                display.style.display = "none";
+                while (activeoutput.hasChildNodes()) {
+                    activeoutput.removeChild(activeoutput.firstChild);
+                }
+                while (completedoutput.hasChildNodes()) {
+                    completedoutput.removeChild(completedoutput.firstChild);
+                }
+
+                for (let j = 0; j < indexnu.length; j++) {
+
+                let listItem = document.createElement("li");
+
+                create = document.createElement("span");
+                create.id = "arrayoutput";
+
+
+                createcheckbox = document.createElement("input");
+                createcheckbox.type = "checkbox";
+                createcheckbox.id = "checkbox";
+                createcheckbox.className = "checkbox";
+
+                arroutput = document.createElement("span");
+                arroutput.id = "arroutput";
+                arroutput.className = "arroutput";
+
+                date = document.createElement("span");
+                date.className = "delete";
+                date.id = "date";
+
+                editicon = document.createElement("i");
+                editicon.id = "edit";
+                editicon.className = "edit";
+
+                deleteicon = document.createElement("i");
+                deleteicon.id = "delete";
+                deleteicon.className = "delete";
+
+
+                let i = indexnu[j];
+                arroutput.innerHTML = i.name;
+                date.innerHTML = i.date;
+                createcheckbox.innerHTML = i.check;
+                editicon.innerHTML = i.edit;
+                deleteicon.innerHTML = i.delete;
+
+                create.appendChild(createcheckbox)
+                create.appendChild(arroutput);
+                create.appendChild(date);
+                create.appendChild(editicon);
+                create.appendChild(deleteicon);
+                listItem.appendChild(create);
+                activeoutput.appendChild(listItem);
+                }
+
+            }
+            let remove = document.getElementsByClassName('delete');
+
+            for (let i = 0; i < remove.length; i++) {
+                remove[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                    // let activesplice=filteractive.splice(i,1);
+                }
+            }
+
+                }
+
+                
+                
+             
+            // }
+            
+            
 
 
         }
@@ -285,7 +393,8 @@
         enterActive();
         enterAll();
 
-        let searchbar=document.getElementById("searchbar");
+
+
 
         let activeoutput = document.getElementById("activeoutput");
         let completedoutput = document.getElementById("completedoutput");
@@ -297,6 +406,8 @@
             // console.log("hello");
             filteractive = arr.filter((item => item.check.checked === false));
             // console.log(filteractive);
+
+
 
             display.style.display = "none";
             while (completedoutput.hasChildNodes()) {
@@ -441,6 +552,7 @@
                 createcheckbox.type = "checkbox";
                 createcheckbox.id = "checkbox";
                 createcheckbox.className = "checkbox";
+                createcheckbox.checked="true";
 
                 arroutput = document.createElement("span");
                 arroutput.id = "arroutput";
@@ -462,7 +574,7 @@
                 let i = filtercompleted[j];
                 arroutput.innerHTML = i.name;
                 date.innerHTML = i.date;
-                createcheckbox.innerHTML = i.check;
+                createcheckbox.innerHTML = i.check.checked;
                 editicon.innerHTML = i.edit;
                 deleteicon.innerHTML = i.delete;
 
