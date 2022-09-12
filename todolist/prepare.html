@@ -47,13 +47,12 @@
                     </div>
                 </div>
                 <div class="searchbar row mt-2">
-                    <div class="col-12">
-                        <!-- <div id="searchbar" class="searchbar" onclick="search()">
-                            <i class="fa-solid fa-magnifying-glass" ></i> 
-                        </div> -->
+                    <div class="col-1" id="searchicon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="searchdiv col-8">
                         <input type="text" id="searchinput" class="searchinput" onkeyup="search()"
-                            placeholder="search...">
-                        <!-- <input type="submit" onclick="search()"> -->
+                            placeholder="search..."><i class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
                     </div>
                 </div>
             </div>
@@ -75,7 +74,7 @@
 
     <script>
 
-let title = document.getElementById("title")
+        let title = document.getElementById("title")
         // let para=document.createElement("input");
 
         function myfunc() {
@@ -113,6 +112,22 @@ let title = document.getElementById("title")
             filter.className = "filternone";
         }
 
+        let seachicon = document.getElementById("searchicon");
+        let searchinput = document.getElementById("searchinput");
+        let crossicon = document.getElementById("crossicon");
+
+        document.getElementById("searchicon").addEventListener("click", () => {
+            searchicon.style.display = "none";
+            searchinput.style.display = "block";
+            crossicon.style.display = "block"
+        })
+
+        document.getElementById("crossicon").addEventListener("click", () => {
+            seachicon.style.display = "block";
+            searchinput.style.display = "none";
+            crossicon.style.display = "none";
+        })
+
 
         let input = document.getElementById("title");
         let display = document.getElementById("output");
@@ -143,7 +158,7 @@ let title = document.getElementById("title")
             arroutput = document.createElement("span");
             arroutput.id = "arroutput";
             arroutput.className = "arroutput";
-            
+
             date = document.createElement("span");
             date.id = "date";
 
@@ -165,10 +180,10 @@ let title = document.getElementById("title")
 
             k++;
 
-            let reg=/^[0-9]/;
+            let reg = /^[0-9]/;
 
-            let regular=input.value;
-            let checkreg=reg.test(regular)
+            let regular = input.value;
+            let checkreg = reg.test(regular)
 
             if (checkreg) {
                 input.classList = "formvalidation"
@@ -187,9 +202,9 @@ let title = document.getElementById("title")
                 }
 
                 arr.push(inputs);
-                
+
                 let i = arr[arr.length - 1];
-    
+
                 arroutput.innerHTML = i.name;
                 date.innerHTML = i.date;
                 editicon.innerHTML = i.edit;
@@ -199,7 +214,7 @@ let title = document.getElementById("title")
                 listItem.appendChild(createcheckbox);
                 listItem.appendChild(arroutput);
                 listItem.appendChild(date);
-                listItem.appendChild(editicon);
+                // listItem.appendChild(editicon);
                 listItem.appendChild(deleteicon);
                 // listItem.appendChild(create);
                 display.appendChild(listItem);
@@ -218,7 +233,7 @@ let title = document.getElementById("title")
             }
 
         }
-        
+
         // let activeoutput = document.getElementById("active");
         let filteractive = "";
 
@@ -226,32 +241,45 @@ let title = document.getElementById("title")
             filteractive = arr.filter((item => item.check.checked === false));
             // console.log(filteractive);
             enter(filteractive);
+            searchicon.style.display = "none";
+        })
+
+        let filtercompleted = "";
+        document.getElementById("completed").addEventListener("click", () => {
+            filtercompleted = arr.filter((item) => item.check.checked === true);
+            enter(filtercompleted);
+            searchicon.style.display = "none";
         })
 
         let filterall = "";
+        document.getElementById("all").addEventListener("click", () => {
 
-        document.getElementById("completed").addEventListener("click", () =>{
-            filtercompleted=arr.filter((item) => item.check.checked === true);
-            enter(filtercompleted);
+            filterall = arr.filter((item) => item.check.checked == true || item.check.checked == false);
+            enter(filterall);
+            searchicon.style.display = "block";
         })
 
-        document.getElementById("all").addEventListener("click",() => {
+        let filtersearch = '';
+        let searchinputval = document.getElementById("searchinput");
 
-            filterall=arr.filter((item) => item.check.checked == true || item.check.checked == false);
-            enter(filterall)
-        })
+        function search() {
+            let searchinputvalue = searchinputval.value;
+            // console.log(searchinputvalue);
+            filtersearch =arr.filter((item) => item.name == searchinputvalue);
+            // console.log(filtersearch);
+            enter(filtersearch);
+        }
 
 
+        function enter(a) {
 
-        function enter(a){
-
-
+            let i = "";
 
             while (display.hasChildNodes()) {
-                    display.removeChild(display.firstChild);
-                }
+                display.removeChild(display.firstChild);
+            }
 
-                // activelength = filteractive.length;
+            // activelength = filteractive.length;
 
             for (let j = 0; j < a.length; j++) {
 
@@ -282,12 +310,12 @@ let title = document.getElementById("title")
                 deleteicon.className = "delete";
 
 
-                let i = a[j];
-                if(i.check.checked){
-                    createcheckbox.checked="true";
+                i = a[j];
+                if (i.check.checked === false) {
+                    // createcheckbox.checked="false"
                     // console.log("hello")
-                }else{
-                    createcheckbox.checked="false"
+                } else {
+                    createcheckbox.checked = "true";
                     // console.log("what")
                 }
                 arroutput.innerHTML = i.name;
@@ -299,23 +327,27 @@ let title = document.getElementById("title")
                 create.appendChild(createcheckbox)
                 create.appendChild(arroutput);
                 create.appendChild(date);
-                create.appendChild(editicon);
+                // create.appendChild(editicon);
                 create.appendChild(deleteicon);
                 listItem.appendChild(create);
                 display.appendChild(listItem);
 
 
             }
+
+
+
             let remove = document.getElementsByClassName('delete');
 
             for (let i = 0; i < remove.length; i++) {
                 remove[i].onclick = function () {
-                    // var div = this.parentElement;
-                    // div.style.display = "none";
-                    let activesplice=filteractive.splice(i,1);
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                    arr.splice(i - 1, 1);
+
                 }
             }
-        
+
         }
 
 
