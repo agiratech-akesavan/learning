@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let p = new Promise((resolve,reject) => {
+            let a=1+1;     
+            if(a == 2){
+                resolve("it's true");
+            }else{
+                reject("it's false");
+            }
+        }) 
+
+        p.then((message) => {
+            console.log("this output of correct" + message)
+        }).catch((message) => {
+            console.log("this output the error" +message);
+        })
+
+
+
+    const inputValue=false;
+    const userWatchingCatMeme=false;
+
+    function userWatchingPromise(){
+        return new Promise((resolve,reject) => {
+            if(inputValue){
+                reject({
+                    name:"user left",
+                    message:":("
+                })
+            }else if(userWatchingCatMeme){
+                reject({
+                    name:"user watching cat meme",
+                    message:"web dev simplified",
+                })
+            }else{
+                resolve("all output is correct");
+            }
+        })
+    }
+
+    userWatchingPromise().then((message) => {
+        console.log(message);
+    }).catch((error) => {
+        console.log(error.name+" "+error.message);
+    })
+
+
+
+    const userOne=new Promise((resolve,reject) => {
+        resolve("hello1");
+    })
+
+    const userTwo=new Promise((resolve,reject) => {
+        resolve("hello2");
+    })
+
+    const userThree=new Promise((resolve,reject) => {
+        resolve("hello3");
+    })
+
+
+    // required promise value will be taken by the promise keyword.
+    //this stored in array format and output output is array format.
+
+    Promise.all([
+        userOne,
+        userTwo,
+        userThree,
+    ]).then((message)=>{
+        console.log(message);
+    })
+
+    //first completed promise value will be get by the promise.race method.
+
+    Promise.race([
+        userOne,
+        userTwo,
+        userThree,
+    ]).then((message)=>{
+        console.log(message);
+    })
+
+    //hello1
+
+
+    
+
+
+
+    </script>
+
+</body>
+
+</html>
