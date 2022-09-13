@@ -175,9 +175,10 @@
             let dates = new Date();
             let day = dates.getDate();
             let months = dates.getMonth();
+            let originalmonth=Number(months+1);
             let year = dates.getFullYear();
 
-            let requireddate = "created by " + day + "-" + months + 1 + "-" + year;
+            let requireddate = "created by " + day + "-" + originalmonth + "-" + year;
 
             k++;
 
