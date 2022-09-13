@@ -51,8 +51,8 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="searchdiv col-8">
-                        <input type="text" id="searchinput" class="searchinput" onkeyup="search()"
-                            placeholder="search..."><i class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
+                        <input type="text" id="searchinput" class="searchinput" placeholder="search..."><i
+                            class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
                     </div>
                 </div>
             </div>
@@ -147,6 +147,7 @@
 
         function add() {
 
+
             listItem = document.createElement("li");
             listItem.className = "arrayoutput";
 
@@ -176,7 +177,7 @@
             let months = dates.getMonth();
             let year = dates.getFullYear();
 
-            let requireddate = "created by " + day + "-" + months + "-" + year;
+            let requireddate = "created by " + day + "-" + months + 1 + "-" + year;
 
             k++;
 
@@ -234,42 +235,70 @@
 
         }
 
+        let temp = arr;
+
         // let activeoutput = document.getElementById("active");
         let filteractive = "";
+        let filtersearch = '';
+        let searchinputval = document.getElementById("searchinput");
 
         document.getElementById("active").addEventListener("click", () => {
-            filteractive = arr.filter((item => item.check.checked === false));
+            filteractive = temp.filter((item => item.check.checked === false));
             // console.log(filteractive);
             enter(filteractive);
-            searchicon.style.display = "none";
+            document.getElementById("searchinput").addEventListener("keyup", () => {
+                let searchinputvalue = searchinputval.value;
+                // console.log(searchinputvalue);
+                filtersearch = arr.filter((item) => item.name == searchinputvalue);
+                // console.log(filtersearch.length);
+                if (filtersearch.length != 0) {
+                    enter(filtersearch);
+                } else {
+                    display.innerHTML = "No date here";
+                    display.className = "searchnodate";
+                }
+            })
+            // searchicon.style.display = "none";
         })
 
         let filtercompleted = "";
         document.getElementById("completed").addEventListener("click", () => {
-            filtercompleted = arr.filter((item) => item.check.checked === true);
+            filtercompleted = temp.filter((item) => item.check.checked === true);
             enter(filtercompleted);
-            searchicon.style.display = "none";
+            document.getElementById("searchinput").addEventListener("keyup", () => {
+                let searchinputvalue = searchinputval.value;
+                // console.log(searchinputvalue);
+                filtersearch = arr.filter((item) => item.name == searchinputvalue);
+                // console.log(filtersearch.length);
+                if (filtersearch.length != 0) {
+                    enter(filtersearch);
+                } else {
+                    display.innerHTML = "No date here";
+                    display.className = "searchnodate";
+                }
+            })
+            // searchicon.style.display = "none";
         })
 
         let filterall = "";
         document.getElementById("all").addEventListener("click", () => {
 
-            filterall = arr.filter((item) => item.check.checked == true || item.check.checked == false);
+            filterall = temp.filter((item) => item.check.checked == true || item.check.checked == false);
             enter(filterall);
-            searchicon.style.display = "block";
+            document.getElementById("searchinput").addEventListener("keyup", () => {
+                let searchinputvalue = searchinputval.value;
+                // console.log(searchinputvalue);
+                filtersearch = arr.filter((item) => item.name == searchinputvalue);
+                // console.log(filtersearch.length);
+                if (filtersearch.length != 0) {
+                    enter(filtersearch);
+                } else {
+                    display.innerHTML = "No date here";
+                    display.className = "searchnodate";
+                }
+            })
+            // searchicon.style.display = "block";
         })
-
-        let filtersearch = '';
-        let searchinputval = document.getElementById("searchinput");
-
-        function search() {
-            let searchinputvalue = searchinputval.value;
-            // console.log(searchinputvalue);
-            filtersearch =arr.filter((item) => item.name == searchinputvalue);
-            // console.log(filtersearch);
-            enter(filtersearch);
-        }
-
 
         function enter(a) {
 
@@ -278,6 +307,7 @@
             while (display.hasChildNodes()) {
                 display.removeChild(display.firstChild);
             }
+
 
             // activelength = filteractive.length;
 
@@ -335,6 +365,25 @@
 
             }
 
+            let checkchecking = document.getElementsByClassName("checkbox");
+            // console.log(checkchecking.length);
+
+            for (let i = 0; i < checkchecking.length; i++) {
+                checkchecking[i].addEventListener("click", () => {
+                    let checkid = a[i].id;
+                    let checkchange = a.findIndex((item) => item.id === checkid);
+                    // let checkindexid=arr[checkchange];
+                    if (a[checkchange].check.checked) {
+                        a[checkchange].check.checked = false;
+                        a.splice(checkchange, 1);
+                        enter(a);
+                    } else {
+                        a[checkchange].check.checked = true;
+                        a.splice(checkchange, 1);
+                        enter(a);
+                    }
+                })
+            }
 
 
             let remove = document.getElementsByClassName('delete');
@@ -343,8 +392,7 @@
                 remove[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
-                    arr.splice(i - 1, 1);
-
+                    arr.splice(i - 2, 1);
                 }
             }
 
