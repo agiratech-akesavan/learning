@@ -1,7 +1,13 @@
+.background{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30vh;
 
+}
 .section{
     /* border:2px solid black; */
     margin:0 25%;
+
 }
 .option{
     /* border:2px solid black */

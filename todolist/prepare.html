@@ -21,57 +21,59 @@
 <body>
 
     <div class="container">
-        <div class="heading p-3 d-flex justify-content-center">
-            <h1>SIMPLE TODO LIST</h1>
-        </div>
-        <div class="section ">
-            <div class="option  mt-4 p-3">
-                <div class="row">
-                    <div class="input col-6">
-                        <p>Todo Title *</p>
-                        <input type="text" id="title" onmouseenter="myfunc()" onmouseleave="myfunc1()">
+        <div class="background" style="background-image: url(background.jpg);">
+
+            <div class="heading p-3 d-flex justify-content-center">
+                <h1>SIMPLE TODO LIST</h1>
+            </div>
+            <div class="section ">
+                <div class="option  mt-4 p-3">
+                    <div class="row">
+                        <div class="input col-6">
+                            <p>Todo Title *</p>
+                            <input type="text" id="title" onmouseenter="myfunc()" onmouseleave="myfunc1()">
+                        </div>
+                        <div class="addbtn col-3 mt-4">
+                            <button class="btn btn-primary ps-3 pe-3 pt-2 pb-2 w-100" onclick="add()">ADD TODO</button>
+                        </div>
+                        <div class="filter col-3 mt-4">
+                            <p class="filtericon" id="filtericon" onclick="filt()">
+                                <i class="fa-sharp fa-solid fa-filter "></i>
+                                All
+                            </p>
+                            <ul class="list" id="list">
+                                <li class="dropdown" onclick="enterAll()" id="all">All</li>
+                                <li class="dropdown" onclick="enterActive()" id="active">Active</li>
+                                <li class="dropdown" onclick="enterCompleted()" id="completed">Complete</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="addbtn col-3 mt-4">
-                        <button class="btn btn-primary ps-3 pe-3 pt-2 pb-2 w-100" onclick="add()">ADD TODO</button>
-                    </div>
-                    <div class="filter col-3 mt-4">
-                        <p class="filtericon" id="filtericon" onclick="filt()">
-                            <i class="fa-sharp fa-solid fa-filter "></i>
-                            All
-                        </p>
-                        <ul class="list" id="list">
-                            <li class="dropdown" onclick="enterAll()" id="all">All</li>
-                            <li class="dropdown" onclick="enterActive()" id="active">Active</li>
-                            <li class="dropdown" onclick="enterCompleted()" id="completed">Complete</li>
-                        </ul>
+                    <div class="searchbar row mt-2">
+                        <div class="col-1" id="searchicon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="searchdiv col-8">
+                            <input type="text" id="searchinput" class="searchinput" placeholder="search..."><i
+                                class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
+                        </div>
+                        <div>
+                            <span class="searchvalidation" id="searchvalidation">No data here</span>
+                        </div>
                     </div>
                 </div>
-                <div class="searchbar row mt-2">
-                    <div class="col-1" id="searchicon">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="contentdisplay  mt-4">
+                    <div class="contenthead">
+                        <h4 class="p-3">TODO LISTS</h4>
                     </div>
-                    <div class="searchdiv col-8">
-                        <input type="text" id="searchinput" class="searchinput" placeholder="search..."><i
-                            class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
-                    </div>
-                    <div>
-                        <span class="searchvalidation" id="searchvalidation">No data here</span>
+                    <div class="output">
+                        <div id="allouputdiv">
+                            <ul id="output">
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contentdisplay  mt-4">
-                <div class="contenthead">
-                    <h4 class="p-3">TODO LISTS</h4>
-                </div>
-                <div class="output">
-                    <div id="allouputdiv">
-                        <ul id="output">
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -131,7 +133,7 @@
             seachicon.style.display = "block";
             searchinput.style.display = "none";
             crossicon.style.display = "none";
-            searchvalidation.className="searchvalid"
+            searchvalidation.className = "searchvalid"
         })
 
 
@@ -150,6 +152,9 @@
 
         let arr = [];
         let inputs = {};
+
+        // arr=JSON.parse(localStorage.getItem("todo"));
+
 
         function add() {
 
@@ -214,6 +219,8 @@
                 }
 
                 arr.push(inputs);
+
+                // localStorage.setItem("todo",JSON.stringify(arr));
 
                 let i = arr[arr.length - 1];
 
@@ -426,7 +433,7 @@
                     // let searchincludes=x.includes(searchinputvalue,x);
                     if (!x[i].innerHTML.includes(searchinputvalue)) {
                         // console.log("hello");
-                        searchvalidation.className = "searchvalidationresult";
+                        // searchvalidation.className = "searchvalidationresult";
                         searchspanarrayoutput[i].style.display = "none";
                         // display.innerHTML = "No date here";
                         // display.className = "searchnodate"; 
@@ -437,8 +444,8 @@
                     }
 
                 }
-            }else{
-                searchvalidation.className="searchvalidationempty";
+            } else {
+                // searchvalidation.className="searchvalidationempty";
             }
             // searchinputval.value="";
 
