@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function myfun(meal,tip,tax){
+
+            let tip_percentage=((meal/100)*tip);
+            console.log(tip_percentage);
+            let tax_percentage=((tax/100)*12);
+            console.log(tax_percentage);
+
+            let total=Math.round(meal+tip_percentage+tax_percentage) //Math.round method used to float value will be convert into integer.
+            console.log(total);
+
+        }
+
+
+        myfun(12,20,8)
+    </script>
+
+</body>
+</html>
