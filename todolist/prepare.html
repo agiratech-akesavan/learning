@@ -54,6 +54,9 @@
                         <input type="text" id="searchinput" class="searchinput" placeholder="search..."><i
                             class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
                     </div>
+                    <div>
+                        <span class="searchvalidation" id="searchvalidation">No data here</span>
+                    </div>
                 </div>
             </div>
             <div class="contentdisplay  mt-4">
@@ -122,10 +125,13 @@
             crossicon.style.display = "block"
         })
 
+        let searchvalidation = document.getElementById("searchvalidation");
+
         document.getElementById("crossicon").addEventListener("click", () => {
             seachicon.style.display = "block";
             searchinput.style.display = "none";
             crossicon.style.display = "none";
+            searchvalidation.className="searchvalid"
         })
 
 
@@ -318,8 +324,6 @@
             for (let j = 0; j < a.length; j++) {
 
                 let listItem = document.createElement("li");
-                listItem.className = "arrayoutput";
-
 
                 create = document.createElement("span");
                 create.id = "arrayoutput";
@@ -409,28 +413,37 @@
 
 
         let searcharroutput = document.getElementsByClassName("arroutput");
-            let searchinputval = document.getElementById("searchinput");
-            let searchspanarrayoutput=document.getElementsByClassName("spanarrayoutput");
+        let searchinputval = document.getElementById("searchinput");
+        let searchspanarrayoutput = document.getElementsByClassName("spanarrayoutput");
 
-            document.getElementById("searchinput").addEventListener("keyup", () => {
-                let searchinputvalue = searchinputval.value;
+        document.getElementById("searchinput").addEventListener("keyup", () => {
+            let searchinputvalue = searchinputval.value;
+
+            if (searcharroutput.length != 0) {
                 // console.log(searcharroutput.length)
                 for (let i = 0; i < searcharroutput.length; i++) {
                     let x = searcharroutput;
                     // let searchincludes=x.includes(searchinputvalue,x);
                     if (!x[i].innerHTML.includes(searchinputvalue)) {
                         // console.log("hello");
-                        // searchspanarrayoutput[i].style.display = "none";
-                        display.innerHTML = "No date here";
-                        display.className = "searchnodate"; 
+                        searchvalidation.className = "searchvalidationresult";
+                        searchspanarrayoutput[i].style.display = "none";
+                        // display.innerHTML = "No date here";
+                        // display.className = "searchnodate"; 
                     } else {
-                        searchspanarrayoutput[i].style.display = "list-item";
                         // console.log("what");
+                        searchspanarrayoutput[i].style.display = "list-item";
+                        searchvalidation.className = "searchvalidation"
                     }
 
                 }
+            }else{
+                searchvalidation.className="searchvalidationempty";
+            }
+            searchinputval.value="";
 
-            })
+        })
+
 
 
     </script>

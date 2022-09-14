@@ -221,3 +221,23 @@ input[type="checkbox"]{
     align-items: center;
     height: 50%;
 }
+.searchvalidation{
+    display:none;
+}
+.searchvalid{
+    display: none;
+}
+.searchvalidationresult{
+    position:absolute;
+    display: block;
+    color:red;
+    font-size: .75rem;
+    padding:5px 20px;
+}
+.searchvalidationempty{
+    position:absolute;
+    display: block;
+    color:red;
+    font-size: .75rem;
+    padding:5px 20px;
+}
