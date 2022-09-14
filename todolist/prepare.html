@@ -151,6 +151,10 @@
             listItem = document.createElement("li");
             listItem.className = "arrayoutput";
 
+            create = document.createElement("span");
+            create.id = "arrayoutput";
+            create.className = "spanarrayoutput"
+
             createcheckbox = document.createElement("input");
             createcheckbox.type = "checkbox";
             createcheckbox.id = "checkbox";
@@ -175,7 +179,7 @@
             let dates = new Date();
             let day = dates.getDate();
             let months = dates.getMonth();
-            let originalmonth=Number(months+1);
+            let originalmonth = Number(months + 1);
             let year = dates.getFullYear();
 
             let requireddate = "created by " + day + "-" + originalmonth + "-" + year;
@@ -213,12 +217,12 @@
                 deleteicon.innerHTML = i.delete;
 
 
-                listItem.appendChild(createcheckbox);
-                listItem.appendChild(arroutput);
-                listItem.appendChild(date);
+                create.appendChild(createcheckbox);
+                create.appendChild(arroutput);
+                create.appendChild(date);
                 // listItem.appendChild(editicon);
-                listItem.appendChild(deleteicon);
-                // listItem.appendChild(create);
+                create.appendChild(deleteicon);
+                listItem.appendChild(create);
                 display.appendChild(listItem);
 
             }
@@ -241,24 +245,23 @@
         // let activeoutput = document.getElementById("active");
         let filteractive = "";
         let filtersearch = '';
-        let searchinputval = document.getElementById("searchinput");
 
         document.getElementById("active").addEventListener("click", () => {
             filteractive = temp.filter((item => item.check.checked === false));
             // console.log(filteractive);
             enter(filteractive);
-            document.getElementById("searchinput").addEventListener("keyup", () => {
-                let searchinputvalue = searchinputval.value;
-                // console.log(searchinputvalue);
-                filtersearch = arr.filter((item) => item.name == searchinputvalue);
-                // console.log(filtersearch.length);
-                if (filtersearch.length != 0) {
-                    enter(filtersearch);
-                } else {
-                    display.innerHTML = "No date here";
-                    display.className = "searchnodate";
-                }
-            })
+            // document.getElementById("searchinput").addEventListener("keyup", () => {
+            //     let searchinputvalue = searchinputval.value;
+            //     // console.log(searchinputvalue);
+            //     filtersearch = arr.filter((item) => item.name == searchinputvalue);
+            //     // console.log(filtersearch.length);
+            //     if (filtersearch.length != 0) {
+            //         enter(filtersearch);
+            //     } else {
+            //         display.innerHTML = "No date here";
+            //         display.className = "searchnodate";
+            //     }
+            // })
             // searchicon.style.display = "none";
         })
 
@@ -266,18 +269,18 @@
         document.getElementById("completed").addEventListener("click", () => {
             filtercompleted = temp.filter((item) => item.check.checked === true);
             enter(filtercompleted);
-            document.getElementById("searchinput").addEventListener("keyup", () => {
-                let searchinputvalue = searchinputval.value;
-                // console.log(searchinputvalue);
-                filtersearch = arr.filter((item) => item.name == searchinputvalue);
-                // console.log(filtersearch.length);
-                if (filtersearch.length != 0) {
-                    enter(filtersearch);
-                } else {
-                    display.innerHTML = "No date here";
-                    display.className = "searchnodate";
-                }
-            })
+            // document.getElementById("searchinput").addEventListener("keyup", () => {
+            //     let searchinputvalue = searchinputval.value;
+            //     // console.log(searchinputvalue);
+            //     filtersearch = arr.filter((item) => item.name == searchinputvalue);
+            //     // console.log(filtersearch.length);
+            //     if (filtersearch.length != 0) {
+            //         enter(filtersearch);
+            //     } else {
+            //         display.innerHTML = "No date here";
+            //         display.className = "searchnodate";
+            //     }
+            // })
             // searchicon.style.display = "none";
         })
 
@@ -286,18 +289,18 @@
 
             filterall = temp.filter((item) => item.check.checked == true || item.check.checked == false);
             enter(filterall);
-            document.getElementById("searchinput").addEventListener("keyup", () => {
-                let searchinputvalue = searchinputval.value;
-                // console.log(searchinputvalue);
-                filtersearch = arr.filter((item) => item.name == searchinputvalue);
-                // console.log(filtersearch.length);
-                if (filtersearch.length != 0) {
-                    enter(filtersearch);
-                } else {
-                    display.innerHTML = "No date here";
-                    display.className = "searchnodate";
-                }
-            })
+            // document.getElementById("searchinput").addEventListener("keyup", () => {
+            //     let searchinputvalue = searchinputval.value;
+            //     // console.log(searchinputvalue);
+            //     filtersearch = arr.filter((item) => item.name == searchinputvalue);
+            //     // console.log(filtersearch.length);
+            //     if (filtersearch.length != 0) {
+            //         enter(filtersearch);
+            //     } else {
+            //         display.innerHTML = "No date here";
+            //         display.className = "searchnodate";
+            //     }
+            // })
             // searchicon.style.display = "block";
         })
 
@@ -315,9 +318,12 @@
             for (let j = 0; j < a.length; j++) {
 
                 let listItem = document.createElement("li");
+                listItem.className = "arrayoutput";
+
 
                 create = document.createElement("span");
                 create.id = "arrayoutput";
+                create.className = "spanarrayoutput"
 
                 createcheckbox = document.createElement("input");
                 createcheckbox.type = "checkbox";
@@ -366,6 +372,7 @@
 
             }
 
+
             let checkchecking = document.getElementsByClassName("checkbox");
             // console.log(checkchecking.length);
 
@@ -398,6 +405,32 @@
             }
 
         }
+
+
+
+        let searcharroutput = document.getElementsByClassName("arroutput");
+            let searchinputval = document.getElementById("searchinput");
+            let searchspanarrayoutput=document.getElementsByClassName("spanarrayoutput");
+
+            document.getElementById("searchinput").addEventListener("keyup", () => {
+                let searchinputvalue = searchinputval.value;
+                // console.log(searcharroutput.length)
+                for (let i = 0; i < searcharroutput.length; i++) {
+                    let x = searcharroutput;
+                    // let searchincludes=x.includes(searchinputvalue,x);
+                    if (!x[i].innerHTML.includes(searchinputvalue)) {
+                        // console.log("hello");
+                        // searchspanarrayoutput[i].style.display = "none";
+                        display.innerHTML = "No date here";
+                        display.className = "searchnodate"; 
+                    } else {
+                        searchspanarrayoutput[i].style.display = "list-item";
+                        // console.log("what");
+                    }
+
+                }
+
+            })
 
 
     </script>

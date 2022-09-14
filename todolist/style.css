@@ -127,7 +127,8 @@ input[type="checkbox"]{
 }
 #arrayoutput{
     position: relative;
-    /* top:-25px; */
+    /* top:-20px; */
+    /* bottom:20; */
     /* left:40px; */
     /* width:50%; */
     /* border-bottom:1px solid black; */
@@ -137,22 +138,24 @@ input[type="checkbox"]{
     /* font-weight:700; */
 }
 #arroutput{
-    /* position:relative; */
+    position:relative;
     font-size:1.4rem;
     font-weight:700;
     /* margin-top:-20px; */
     padding:0 20px;
 
-    /* top:-30px;
-    left:40px; */
+    /* top:-30px; */
+    /* left:30px; */
 }
 #date{
-    /* position: relative; */
+    position: relative;
     /* left:30px; */
     /* border-top:1px solid black; */
     /* padding-top: 3px;
     padding-left:8px; */
-    padding:0 20px;
+    /* padding:0 20px; */
+    /* float: right; */
+    /* margin:0 5% 0 20%; */
 
 }
 /* delete{
@@ -170,6 +173,7 @@ input[type="checkbox"]{
     /* left:20px;
     top:-20px; */
     padding:0 20px;
+    float: right;
 
 }
 .edit{
