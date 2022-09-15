@@ -19,57 +19,60 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="background" style="background-image: url(background.jpg);">
-
-            <div class="heading p-3 d-flex justify-content-center">
-                <h1>SIMPLE TODO LIST</h1>
-            </div>
-            <div class="section ">
-                <div class="option  mt-4 p-3">
-                    <div class="row">
-                        <div class="input col-6">
-                            <p>Todo Title *</p>
-                            <input type="text" id="title" onmouseenter="myfunc()" onmouseleave="myfunc1()">
-                        </div>
-                        <div class="addbtn col-3 mt-4">
-                            <button class="btn btn-primary ps-3 pe-3 pt-2 pb-2 w-100" onclick="add()">ADD TODO</button>
-                        </div>
-                        <div class="filter col-3 mt-4">
-                            <p class="filtericon" id="filtericon" onclick="filt()">
-                                <i class="fa-sharp fa-solid fa-filter "></i>
-                                All
-                            </p>
-                            <ul class="list" id="list">
-                                <li class="dropdown" onclick="enterAll()" id="all">All</li>
-                                <li class="dropdown" onclick="enterActive()" id="active">Active</li>
-                                <li class="dropdown" onclick="enterCompleted()" id="completed">Complete</li>
-                            </ul>
-                        </div>
+    <div class="overall container-fluid">
+        <div class="container">
+            <div class="background" style="background-image: url('header.webp');">
+                <div class="overlay">
+                    <div class="heading p-3 d-flex justify-content-center">
+                        <h1>SIMPLE TODO LIST</h1>
                     </div>
-                    <div class="searchbar row mt-2">
-                        <div class="col-1" id="searchicon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="section ">
+                        <div class="option  mt-4 p-3">
+                            <div class="row">
+                                <div class="input col-6">
+                                    <p>Todo Title *</p>
+                                    <input type="text" id="title" onmouseenter="myfunc()" onmouseleave="myfunc1()">
+                                </div>
+                                <div class="addbtn col-3 mt-4">
+                                    <button class="btn btn-primary ps-3 pe-3 pt-2 pb-2 w-100" onclick="add()">ADD
+                                        TODO</button>
+                                </div>
+                                <div class="filter col-3 mt-4">
+                                    <p class="filtericon" id="filtericon" onclick="filt()">
+                                        <i class="fa-sharp fa-solid fa-filter "></i>
+                                        All
+                                    </p>
+                                    <ul class="list" id="list">
+                                        <li class="dropdown" onclick="enterAll()" id="all">All</li>
+                                        <li class="dropdown" onclick="enterActive()" id="active">Active</li>
+                                        <li class="dropdown" onclick="enterCompleted()" id="completed">Complete</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="searchbar row mt-2">
+                                <div class="col-1" id="searchicon">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                                <div class="searchdiv col-8">
+                                    <input type="text" id="searchinput" class="searchinput" placeholder="search..."><i
+                                        class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
+                                </div>
+                                <div>
+                                    <span class="searchvalidation" id="searchvalidation">No data here</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="searchdiv col-8">
-                            <input type="text" id="searchinput" class="searchinput" placeholder="search..."><i
-                                class="fa-sharp fa-solid fa-square-xmark" id="crossicon"></i>
-                        </div>
-                        <div>
-                            <span class="searchvalidation" id="searchvalidation">No data here</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contentdisplay  mt-4">
-                    <div class="contenthead">
-                        <h4 class="p-3">TODO LISTS</h4>
-                    </div>
-                    <div class="output">
-                        <div id="allouputdiv">
-                            <ul id="output">
+                        <div class="contentdisplay  mt-4">
+                            <div class="contenthead">
+                                <h4 class="p-3">TODO LISTS</h4>
+                            </div>
+                            <div class="output">
+                                <div id="allouputdiv">
+                                    <ul id="output">
 
-                            </ul>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,8 +156,13 @@
         let arr = [];
         let inputs = {};
 
-        // arr=JSON.parse(localStorage.getItem("todo"));
+        // window.onload = todo;
 
+        // function todo() {
+        //     arr = JSON.parse(localStorage.getItem("todo"))
+        //     enter(arr)
+        //     // console.log(arr)
+        // }
 
         function add() {
 
@@ -209,6 +217,7 @@
                     "id": k,
                     "name": input.value,
                     "check": createcheckbox,
+                    // "check":`<input type=checkbox>`,
                     "date": requireddate,
                     "delete": `<button id="del">
                     <i class="fa-solid fa-trash"></i>
@@ -218,9 +227,19 @@
                         </button>`
                 }
 
+                // localStorage.setItem("onloadtod",JSON.stringify(input));
                 arr.push(inputs);
 
+                localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo") || "[]"),
+                { key: inputs },
+                ])
+                );
                 // localStorage.setItem("todo",JSON.stringify(arr));
+
+
+                // localStorage.setItem("todo", JSON.stringify(arr));
+
+                // addLocalStore(tem);
 
                 let i = arr[arr.length - 1];
 
@@ -228,6 +247,7 @@
                 date.innerHTML = i.date;
                 editicon.innerHTML = i.edit;
                 deleteicon.innerHTML = i.delete;
+                // createcheckbox.innerHTML=i.check;
 
 
                 create.appendChild(createcheckbox);
@@ -239,6 +259,8 @@
                 display.appendChild(listItem);
 
             }
+
+            // console.log(localStorage.getItem("todo"))
 
             let remove = document.getElementsByClassName('delete');
 
@@ -253,16 +275,42 @@
 
         }
 
-        let temp = arr;
+        let result = JSON.parse(localStorage.getItem("todo"));
+        console.log(result);
+        let output=result.map(e1 => e1.key );
+
+        console.log(output);
+        
+        // let map=output.map();
+
+        // enter(output);
+        // enter(output);
+        // enter(result);
+        // function addLocalStore(a){
+        //     localStorage.setItem("todo",JSON.stringify(a)); 
+        // }
+
+        // console.log(localStorage.getItem("todo"))
+        // localStorage.removeItem("todo")
+        // console.log(JSON.parse(localStorage.getItem("todo")));
+
+        // enter(localstored);
+
+        // let temp = arr;
+        // console.log(temp)
+
 
         // let activeoutput = document.getElementById("active");
         let filteractive = "";
         let filtersearch = '';
 
         document.getElementById("active").addEventListener("click", () => {
-            filteractive = temp.filter((item => item.check.checked === false));
-            // console.log(filteractive);
-            enter(filteractive);
+            filteractive = arr.filter((item => item.check.checked === "false"));
+
+            // let result=Object.keys(arr).map((key) => ({[key]:name[key]}));
+            // console.log(result);
+            // console.log(JSON.parse(localStorage.getItem("todo")));
+            // enter(filteractive);
             // document.getElementById("searchinput").addEventListener("keyup", () => {
             //     let searchinputvalue = searchinputval.value;
             //     // console.log(searchinputvalue);
@@ -330,6 +378,8 @@
 
             for (let j = 0; j < a.length; j++) {
 
+                console.log(a[j].name);
+
                 let listItem = document.createElement("li");
 
                 create = document.createElement("span");
@@ -358,14 +408,14 @@
                 deleteicon.className = "delete";
 
 
-                i = a[j];
-                if (i.check.checked === false) {
-                    // createcheckbox.checked="false"
-                    // console.log("hello")
-                } else {
-                    createcheckbox.checked = "true";
-                    // console.log("what")
-                }
+                // i = a[j];
+                // if (i.check.checked === false) {
+                //     // createcheckbox.checked=false
+                //     // console.log("hello")
+                // } else {
+                //     createcheckbox.checked = true;
+                //     // console.log("what")
+                // }
                 arroutput.innerHTML = i.name;
                 date.innerHTML = i.date;
                 createcheckbox.innerHTML = i.check;
