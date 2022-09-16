@@ -136,6 +136,11 @@ input{
     /* left:20px; */
     /* margin: 2rem; */
 }
+#clear{
+    float: right;
+    position: relative;
+    right: 20px;
+}
 #activeoutput{
     list-style-type: none;
     display: block;

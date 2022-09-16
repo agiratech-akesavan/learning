@@ -72,6 +72,7 @@
 
                                     </ul>
                                 </div>
+                                <!-- <button id="clear">clear</button> -->
                             </div>
                         </div>
                     </div>
@@ -153,8 +154,11 @@
         let editicon = "";
         let k = "";
 
-        let arr = [];
+        let arr = JSON.parse(localStorage.getItem("todo")) || [];
+
         let inputs = {};
+        enter(arr)
+
 
         // window.onload = todo;
 
@@ -172,11 +176,12 @@
 
             create = document.createElement("span");
             create.id = "arrayoutput";
-            create.className = "spanarrayoutput"
+            create.className = "spanarrayoutput";
 
             createcheckbox = document.createElement("input");
             createcheckbox.type = "checkbox";
             createcheckbox.id = "checkbox";
+            createcheckbox.value = "";
             createcheckbox.className = "checkbox";
 
             arroutput = document.createElement("span");
@@ -219,6 +224,7 @@
                     "check": createcheckbox,
                     // "check":`<input type=checkbox>`,
                     "date": requireddate,
+                    "status": false,
                     "delete": `<button id="del">
                     <i class="fa-solid fa-trash"></i>
                     </button>`,
@@ -227,17 +233,20 @@
                         </button>`
                 }
 
+
+
                 // localStorage.setItem("onloadtod",JSON.stringify(input));
                 arr.push(inputs);
 
-                localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo") || "[]"),
-                { key: inputs },
-                ])
-                );
-                // localStorage.setItem("todo",JSON.stringify(arr));
+                // localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo") || "[]"),
+                // { key: inputs },
+                // ])
+                // );
+
+                // let localstorage=localStorage.setItem("todo",JSON.stringify(arr));
 
 
-                // localStorage.setItem("todo", JSON.stringify(arr));
+                localStorage.setItem("todo", JSON.stringify(arr));
 
                 // addLocalStore(tem);
 
@@ -269,18 +278,20 @@
                     var div = this.parentElement;
                     div.style.display = "none";
                     arr.splice(i, 1);
-
+                    localStorage.setItem("todo",JSON.stringify(arr));
                 }
             }
 
+
         }
 
-        let result = JSON.parse(localStorage.getItem("todo"));
-        console.log(result);
-        let output=result.map(e1 => e1.key );
 
-        console.log(output);
-        
+        // let result = JSON.parse(localStorage.getItem("todo"));
+        // console.log(result);
+        // let output=result.map(e1 => ({id:(e1),value:[e1]}) );
+
+        // console.log(output);
+
         // let map=output.map();
 
         // enter(output);
@@ -305,12 +316,14 @@
         let filtersearch = '';
 
         document.getElementById("active").addEventListener("click", () => {
-            filteractive = arr.filter((item => item.check.checked === "false"));
-
+            // let before=arr.filter((item) => item.check.checked === false);
+            filteractive = arr.filter((item => item.status === false));
+            // console.log(filteractive);
             // let result=Object.keys(arr).map((key) => ({[key]:name[key]}));
             // console.log(result);
             // console.log(JSON.parse(localStorage.getItem("todo")));
-            // enter(filteractive);
+            enter(filteractive);
+
             // document.getElementById("searchinput").addEventListener("keyup", () => {
             //     let searchinputvalue = searchinputval.value;
             //     // console.log(searchinputvalue);
@@ -328,7 +341,7 @@
 
         let filtercompleted = "";
         document.getElementById("completed").addEventListener("click", () => {
-            filtercompleted = temp.filter((item) => item.check.checked === true);
+            filtercompleted = arr.filter((item) => item.status === true);
             enter(filtercompleted);
             // document.getElementById("searchinput").addEventListener("keyup", () => {
             //     let searchinputvalue = searchinputval.value;
@@ -348,7 +361,7 @@
         let filterall = "";
         document.getElementById("all").addEventListener("click", () => {
 
-            filterall = temp.filter((item) => item.check.checked == true || item.check.checked == false);
+            filterall = arr.filter((item) => item.status == true || item.status == false);
             enter(filterall);
             // document.getElementById("searchinput").addEventListener("keyup", () => {
             //     let searchinputvalue = searchinputval.value;
@@ -378,7 +391,7 @@
 
             for (let j = 0; j < a.length; j++) {
 
-                console.log(a[j].name);
+                // console.log(a[j].name);
 
                 let listItem = document.createElement("li");
 
@@ -396,7 +409,7 @@
                 arroutput.className = "arroutput";
 
                 date = document.createElement("span");
-                date.className = "delete";
+                // date.className = "delete";
                 date.id = "date";
 
                 editicon = document.createElement("i");
@@ -408,14 +421,15 @@
                 deleteicon.className = "delete";
 
 
-                // i = a[j];
-                // if (i.check.checked === false) {
-                //     // createcheckbox.checked=false
-                //     // console.log("hello")
-                // } else {
-                //     createcheckbox.checked = true;
-                //     // console.log("what")
-                // }
+                i = a[j];
+                // console.log(i.check);
+                if (i.status) {
+                    // console.log("hello")
+                    createcheckbox.checked = true;
+                } else {
+                    createcheckbox.checked = false;
+                    // console.log("what")
+                }
                 arroutput.innerHTML = i.name;
                 date.innerHTML = i.date;
                 createcheckbox.innerHTML = i.check;
@@ -433,35 +447,56 @@
 
             }
 
+            let checkboxlength = document.getElementsByClassName("checkbox");
 
-            let checkchecking = document.getElementsByClassName("checkbox");
-            // console.log(checkchecking.length);
-
-            for (let i = 0; i < checkchecking.length; i++) {
-                checkchecking[i].addEventListener("click", () => {
-                    let checkid = a[i].id;
-                    let checkchange = a.findIndex((item) => item.id === checkid);
-                    // let checkindexid=arr[checkchange];
-                    if (a[checkchange].check.checked) {
-                        a[checkchange].check.checked = false;
-                        a.splice(checkchange, 1);
-                        enter(a);
+            for (let i = 0; i < checkboxlength.length; i++) {
+                checkboxlength[i].addEventListener("click", () => {
+                    if (a[i].status) {
+                        a[i].status = false;
+                        localStorage.setItem("todo",JSON.stringify(a));
+                        console.log("heloo");
                     } else {
-                        a[checkchange].check.checked = true;
-                        a.splice(checkchange, 1);
-                        enter(a);
+                        a[i].status = true;
+                        localStorage.setItem("todo",JSON.stringify(a));
+                        console.log("what");
                     }
                 })
             }
 
 
-            let remove = document.getElementsByClassName('delete');
+            let checkchecking = document.getElementsByClassName("checkbox");
+            // console.log(checkchecking.length);
 
+            // for (let i = 0; i < checkchecking.length; i++) {
+            //     checkchecking[i].addEventListener("click", () => {
+            //         let checkid = a[i].id;
+            //         let checkchange = a.findIndex((item) => item.id === checkid);
+            //         // let checkindexid=arr[checkchange];
+            //         if (a[checkchange].check.checked) {
+            //             a[checkchange].check.checked = false;
+            //             a.splice(checkchange, 1);
+            //             // enter(a); 
+
+            //         } else {
+            //             a[checkchange].check.checked = true;
+            //             a.splice(checkchange, 1);
+            //             enter(a);
+            //         }
+            //     })
+            // }
+
+
+            let remove = document.getElementsByClassName('delete');
             for (let i = 0; i < remove.length; i++) {
                 remove[i].onclick = function () {
+                //   console.log(i);
                     var div = this.parentElement;
                     div.style.display = "none";
-                    arr.splice(i - 2, 1);
+                    JSON.parse(localStorage.getItem("todo"));
+                    a.splice(i,1);
+                    localStorage.setItem("todo",JSON.stringify(a));
+                    // console.log(dele);
+                    // console.log(a);
                 }
             }
 
