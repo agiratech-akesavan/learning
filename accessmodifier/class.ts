@@ -1,6 +1,5 @@
 // export{}
-
-export class Person{
+class Person{
 
     name:string;
     age:number;
