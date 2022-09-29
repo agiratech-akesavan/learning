@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script> 
+        class MyBook{
+        title;
+        author;
+        price;
+        constructor($titl,$autho,$pric){
+            this.title=$titl;
+            this.author=$autho;
+            this.price=$pric;
+        }
+        display(){
+            console.log("Title: "+this.title)
+            console.log("Author: "+this.author)
+            console.log("Price: "+this.price)            
+        }
+    }
+    let book=new MyBook("The Alchemist","Paulo Coelho",248)
+    book.display();
+    </script>
+</body>
+</html>
