@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function main(a) {
+        // Enter your code here
+        // let value = inputLines.join("");
+        // let input = Number(value);
+        let input=Number(a);
+        let output = 0;
+        for (let i = 0; i < input; i++) {
+          if (input % i == 0) {
+            output += i;
+          }
+        }
+        console.log("I implemented: AdvancedArithmetic");
+        console.log(output + input);
+      }
+
+      main(prompt("please enter the value"))
+    </script>
+  </body>
+</html>
